@@ -13,7 +13,7 @@ export async function saveSubscription(
             "ref",
             q.Get(
                 q.Match(
-                    q.Index('user_by_stripe_customer_id'),
+                    q.Index(process.env.INDEX_USER_BY_STRIPE_CUSTOMER_ID),
                     customerId
                 )
             )
@@ -42,7 +42,7 @@ export async function saveSubscription(
                     "ref",
                     q.Get(
                         q.Match(
-                            q.Index('subscription_by_id'),
+                            q.Index(process.env.INDEX_SUBSCRIPTION_BY_ID),
                             subscription.id
                         )
                     )
